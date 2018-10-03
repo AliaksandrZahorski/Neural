@@ -1,3 +1,11 @@
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(400, 400);
+ctx.stroke();
+
 const MIN = 0;
 const MAX = 400;
 const POINTS = 100;
@@ -10,14 +18,6 @@ const point = range.map(_ => ({
   x: random(MIN, MAX),
   y: random(MIN, MAX)
 }));
-
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-
-ctx.beginPath();
-ctx.moveTo(0, 0);
-ctx.lineTo(400, 400);
-ctx.stroke();
 
 point.map(p => {
     const circle = new Path2D();
