@@ -1,0 +1,32 @@
+div {
+  height: 150px;
+  width: 350px;
+  overflow: hidden;
+  border: 10px solid #666;
+}
+
+footer {
+  animation-duration: 10s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  width : 700px;
+  overflow: hidden;
+  float: left;
+}
+
+img {
+	float: left;
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: -350px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
