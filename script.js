@@ -64,4 +64,3 @@ points.map(p => {
   ctx.fill(circle);
 });
 
-// console.log('guess', perceptron(learningData[0], weights), weights);
