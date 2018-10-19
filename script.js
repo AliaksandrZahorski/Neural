@@ -49,18 +49,30 @@ const train = (learningData, weights) => {
   return newWeights;
 };
 
-weights = train(points[0], weights);
+// weights = train(points[0], weights);
 
-points.forEach(d => {
-  weights = train(d, weights);
-});
+// points.forEach(d => {
+//   weights = train(d, weights);
+// });
 
-points.map(p => {
-  const circle = new Path2D();
-  circle.arc(p.x, p.y, 3, 0, 2 * Math.PI);
-  //   const pc = p.answer;
-  const pc = perceptron(p, weights);
-  ctx.fillStyle = pc > 0 ? "rgb(200, 0, 0)" : "rgb(0, 200, 0)";
-  ctx.fill(circle);
-});
+const drawResult = () => {
+    points.map(p => {
+    const circle = new Path2D();
+    circle.arc(p.x, p.y, 3, 0, 2 * Math.PI);
+    //   const pc = p.answer;
+    const pc = perceptron(p, weights);
+    ctx.fillStyle = pc > 0 ? "rgb(200, 0, 0)" : "rgb(0, 200, 0)";
+    ctx.fill(circle);
+    });
+}
 
+let i = 0;
+
+const evnt = ev => {
+    weights = train(points[i], weights);
+    drawResult();
+    i++;
+    if (i > points.length -1) i = 0;
+}
+
+document.addEventListener("click", evnt, false); // third
